@@ -2,7 +2,7 @@
   "name": "human-number",
   "description": "Convert number to a human readable string: `13500` → `13.5K`",
   "homepage": "https://documentup.com/Kikobeats/human-number",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.js",
   "author": {
     "name": "Kiko Beats",
