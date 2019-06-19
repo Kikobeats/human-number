@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/Kikobeats/human-number/compare/v1.0.3...v1.0.4) (2019-06-19)
+
+
+### Build System
+
+* update travis ([21b4599](https://github.com/Kikobeats/human-number/commit/21b4599))
+
+
+
 ### [1.0.3](https://github.com/Kikobeats/human-number/compare/v1.0.2...v1.0.3) (2019-05-20)
 
 
