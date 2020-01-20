@@ -29,7 +29,7 @@
     "number"
   ],
   "dependencies": {
-    "round-to": "~3.0.0"
+    "round-to": "~4.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
