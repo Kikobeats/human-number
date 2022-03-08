@@ -5,8 +5,8 @@
   "version": "1.0.6",
   "main": "src/index.js",
   "author": {
-    "name": "Kiko Beats",
     "email": "josefrancisco.verdu@gmail.com",
+    "name": "Kiko Beats",
     "url": "https://kikobeats.com"
   },
   "repository": {
@@ -17,16 +17,16 @@
     "url": "https://github.com/Kikobeats/human-number/issues"
   },
   "keywords": [
-    "pretty",
-    "prettify",
     "human",
     "humanize",
     "humanized",
+    "number",
+    "prettify",
+    "pretty",
     "readable",
-    "text",
-    "string",
     "str",
-    "number"
+    "string",
+    "text"
   ],
   "dependencies": {
     "round-to": "~5.0.0"
@@ -35,47 +35,45 @@
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "ava": "latest",
+    "c8": "latest",
+    "ci-publish": "latest",
     "conventional-github-releaser": "latest",
-    "coveralls": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
-    "git-dirty": "latest",
-    "simple-git-hooks": "latest",
     "nano-staged": "latest",
     "npm-check-updates": "latest",
-    "c8": "latest",
     "prettier-standard": "latest",
+    "simple-git-hooks": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
-    "standard-version": "latest",
-    "ci-publish": "latest"
+    "standard-version": "latest"
   },
   "engines": {
     "node": ">= 8"
   },
+  "files": [
+    "src"
+  ],
   "scripts": {
     "clean": "rm -rf node_modules",
     "lint": "standard-markdown README.md && standard",
-    "postrelease": "npm run release:tags && npm run release:github && ci-publish",
+    "postrelease": "npm run release:tags && npm run release:github && (ci-publish || npm publish --access=public)",
     "precommit": "nano-staged",
-    "prerelease": "npm run update:check",
+    "prerelease": "npm run update:check && npm run contributors",
     "pretest": "npm run lint",
-    "release": "git-authors-cli && git add package.json && standard-version -a",
+    "release": "standard-version -a",
     "release:github": "conventional-github-releaser -p angular",
     "release:tags": "git push --follow-tags origin HEAD:master",
     "test": "c8 ava",
-    "update": "ncu -a",
-    "update:check": "ncu -- --error-level 2"
+    "update": "ncu -u",
+    "update:check": "ncu -- --error-level 2",
+    "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true"
   },
   "license": "MIT",
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
-  },
-  "simple-git-hooks": {
-    "commit-msg": "npx commitlint --edit",
-    "pre-commit": "npx nano-staged"
   },
   "nano-staged": {
     "*.js": [
@@ -87,5 +85,9 @@
     "package.json": [
       "finepack"
     ]
+  },
+  "simple-git-hooks": {
+    "commit-msg": "npx commitlint --edit",
+    "pre-commit": "npx nano-staged"
   }
 }
