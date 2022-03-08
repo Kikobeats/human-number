@@ -4,8 +4,9 @@ const test = require('ava')
 
 const humanNumber = require('..')
 ;[
-  [0, 0],
-  [100, 100],
+  [0, '0'],
+  [10, '10'],
+  [100, '100'],
   [1000, '1K'],
   [1500, '1.5K'],
   [10000, '10K'],
@@ -19,5 +20,8 @@ const humanNumber = require('..')
 })
 
 test('mapper support', t => {
-  t.is(humanNumber(100, n => Number.parseFloat(n).toFixed(1)), '100.0')
+  t.is(
+    humanNumber(100, n => Number.parseFloat(n).toFixed(1)),
+    '100.0'
+  )
 })

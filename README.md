@@ -1,8 +1,7 @@
 # human-number
 
 ![Last version](https://img.shields.io/github/tag/Kikobeats/human-number.svg?style=flat-square)
-[![Build Status](https://img.shields.io/travis/Kikobeats/human-number/master.svg?style=flat-square)](https://travis-ci.org/Kikobeats/human-number)
-[![Dependency status](https://img.shields.io/david/Kikobeats/human-number.svg?style=flat-square)](https://david-dm.org/Kikobeats/human-number)
+[![Coverage Status](https://img.shields.io/coveralls/Kikobeats/human-number.svg?style=flat-square)](https://coveralls.io/github/Kikobeats/human-number)
 [![NPM Status](https://img.shields.io/npm/dm/human-number.svg?style=flat-square)](https://www.npmjs.org/package/human-number)
 
 > Convert number to a human readable string: `13500` → `13.5K`.
