@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.8 (2022-03-08)
+
+
+### Bug Fixes
+
+* ensure return is always a string ([fd52fb9](https://github.com/Kikobeats/human-number/commit/fd52fb9513df2e0ed3787bf2165cff9e005e3e73)), closes [#5](https://github.com/Kikobeats/human-number/issues/5)
+
 ### 1.0.7 (2022-03-08)
 
 ### [1.0.6](https://github.com/Kikobeats/human-number/compare/v1.0.5...v1.0.6) (2020-10-21)
