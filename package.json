@@ -56,6 +56,7 @@
   ],
   "scripts": {
     "clean": "rm -rf node_modules",
+    "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "lint": "standard-markdown README.md && standard",
     "postrelease": "npm run release:tags && npm run release:github && (ci-publish || npm publish --access=public)",
     "precommit": "nano-staged",
@@ -66,8 +67,7 @@
     "release:tags": "git push --follow-tags origin HEAD:master",
     "test": "c8 ava",
     "update": "ncu -u",
-    "update:check": "ncu -- --error-level 2",
-    "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true"
+    "update:check": "ncu -- --error-level 2"
   },
   "license": "MIT",
   "commitlint": {
