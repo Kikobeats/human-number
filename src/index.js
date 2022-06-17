@@ -1,12 +1,11 @@
 'use strict'
 
-const ALPHABET = 'KMGTPEZY'.split('')
+const ALPHABET = ['K', 'M', 'B', 'T']
 const TRESHOLD = 1e3
 
-module.exports = function (n, fn) {
-  n = Math.abs(n)
-  let index = 0
-  while (n >= TRESHOLD && ++index < ALPHABET.length) n /= TRESHOLD
+module.exports = (n, fn) => {
+  let idx = 0
+  while (n >= TRESHOLD && ++idx <= ALPHABET.length) n /= TRESHOLD
   if (fn) n = fn(n)
-  return String(index === 0 ? n : n + ALPHABET[index - 1])
+  return String(idx === 0 ? n : n + ALPHABET[idx - 1])
 }
