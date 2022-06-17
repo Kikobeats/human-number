@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/Kikobeats/human-number/compare/v1.0.11...v2.0.0) (2022-06-17)
+
+
+### Features
+
+* represent 1million as M ([3d17301](https://github.com/Kikobeats/human-number/commit/3d1730118d4999efe3d77792ae397f5ea999dff4))
+
 ### 1.0.11 (2022-05-17)
 
 ### 1.0.10 (2022-04-11)
