@@ -25,8 +25,10 @@ humanNumber(100_000) // 100K
 humanNumber(100_500) // 100.5K
 humanNumber(1_000_000) // 1M
 humanNumber(1_500_000) // 1.5M
-humanNumber(1_000_000_000) // 1T
-humanNumber(1_500_000_000) // 1.5T
+humanNumber(1_000_000_000) // 1B
+humanNumber(1_500_000_000) // 1.5B
+humanNumber(1_000_000_000_000) // 1T
+humanNumber(1_500_000_000_000) // 1.5T
 ```
 
 You can pass a mapper as second parameter:
