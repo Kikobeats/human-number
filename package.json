@@ -2,7 +2,7 @@
   "name": "human-number",
   "description": "Convert number to a human readable string: `13500` → `13.5K`",
   "homepage": "https://nicedoc.io/Kikobeats/human-number",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
