@@ -1,7 +1,7 @@
 {
   "name": "human-number",
   "description": "Convert number to a human readable string: `13500` → `13.5K`",
-  "homepage": "https://nicedoc.io/Kikobeats/human-number",
+  "homepage": "https://github.com/Kikobeats/human-number",
   "version": "2.0.8",
   "main": "src/index.js",
   "author": {
@@ -29,9 +29,6 @@
     "string",
     "text"
   ],
-  "dependencies": {
-    "round-to": "~5.0.0"
-  },
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
@@ -39,14 +36,12 @@
     "ava": "latest",
     "c8": "latest",
     "ci-publish": "latest",
-    "conventional-github-releaser": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
+    "github-generate-release": "latest",
     "nano-staged": "latest",
-    "npm-check-updates": "latest",
     "simple-git-hooks": "latest",
     "standard": "latest",
-    "standard-markdown": "latest",
     "standard-version": "latest"
   },
   "engines": {
@@ -58,30 +53,30 @@
   "scripts": {
     "clean": "rm -rf node_modules",
     "contributors": "(npx git-authors-cli && npx finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
-    "lint": "standard-markdown README.md && standard",
+    "lint": "standard",
     "postrelease": "npm run release:tags && npm run release:github && (ci-publish || npm publish --access=public)",
-    "prerelease": "npm run update:check && npm run contributors",
+    "prerelease": "npm run contributors",
     "pretest": "npm run lint",
     "release": "standard-version -a",
-    "release:github": "conventional-github-releaser -p angular",
+    "release:github": "github-generate-release",
     "release:tags": "git push --follow-tags origin HEAD:master",
-    "test": "c8 ava",
-    "update": "ncu -u",
-    "update:check": "ncu -- --error-level 2"
+    "test": "c8 ava"
   },
   "license": "MIT",
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
-    ]
+    ],
+    "rules": {
+      "body-max-line-length": [
+        0
+      ]
+    }
   },
   "nano-staged": {
-    "*.js,!*.min.js": [
+    "*.js": [
       "prettier-standard",
       "standard --fix"
-    ],
-    "*.md": [
-      "standard-markdown"
     ],
     "package.json": [
       "finepack"
