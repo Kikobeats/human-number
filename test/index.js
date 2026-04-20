@@ -23,9 +23,10 @@ const humanNumber = require('..')
   test(`${input} → ${output}`, t => t.is(humanNumber(input), output))
 })
 
-test('mapper support', t => {
-  t.is(
-    humanNumber(100, n => Number.parseFloat(n).toFixed(1)),
-    '100.0'
-  )
+test('compact intl support', t => {
+  t.is(humanNumber(500_000), '500K')
+})
+
+test('locale override support', t => {
+  t.is(humanNumber(1_500, 'es-ES'), '1,5 mil')
 })

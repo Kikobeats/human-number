@@ -31,11 +31,11 @@ humanNumber(1_000_000_000_000) // 1T
 humanNumber(1_500_000_000_000) // 1.5T
 ```
 
-You can pass a mapper as second parameter:
+You can pass a locale as second parameter. `en-US` is used by default:
 
 ```js
 const humanNumber = require('human-number')
-humanNumber(100, n => Number.parseFloat(n).toFixed(1)) // '100.0'
+humanNumber(1_500, 'es-ES') // '1,5 mil'
 ```
 
 ## License
