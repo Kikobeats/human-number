@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 3.0.0 (2026-04-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* use NumberFormat (#20)
+
+### Features
+
+* use NumberFormat ([#20](https://github.com/Kikobeats/human-number/issues/20)) ([c26196c](https://github.com/Kikobeats/human-number/commit/c26196cc4a76c7611418b2490b6644dc274986de))
+
 ### 2.0.12 (2026-04-20)
 
 ### 2.0.11 (2026-04-14)
