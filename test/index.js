@@ -23,9 +23,35 @@ const humanNumber = require('..')
   test(`${input} → ${output}`, t => t.is(humanNumber(input), output))
 })
 
-test('mapper support', t => {
-  t.is(
-    humanNumber(100, n => Number.parseFloat(n).toFixed(1)),
-    '100.0'
-  )
+test('compact intl support', t => {
+  t.is(humanNumber(500_000), '500K')
+})
+
+test('locale override support', t => {
+  t.is(humanNumber(1_500, 'es-ES'), '1,5 mil')
+})
+
+test('reuses formatters per locale', t => {
+  const OriginalNumberFormat = Intl.NumberFormat
+  const seenLocales = []
+
+  Intl.NumberFormat = function (...args) {
+    seenLocales.push(args[0])
+    return new OriginalNumberFormat(...args)
+  }
+
+  try {
+    delete require.cache[require.resolve('..')]
+    const freshHumanNumber = require('..')
+
+    freshHumanNumber(1_000)
+    freshHumanNumber(2_000)
+    freshHumanNumber(1_500, 'es-ES')
+    freshHumanNumber(2_500, 'es-ES')
+  } finally {
+    Intl.NumberFormat = OriginalNumberFormat
+    delete require.cache[require.resolve('..')]
+  }
+
+  t.deepEqual(seenLocales, ['en-US', 'es-ES'])
 })
