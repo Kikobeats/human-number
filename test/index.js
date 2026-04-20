@@ -30,3 +30,28 @@ test('compact intl support', t => {
 test('locale override support', t => {
   t.is(humanNumber(1_500, 'es-ES'), '1,5 mil')
 })
+
+test('reuses formatters per locale', t => {
+  const OriginalNumberFormat = Intl.NumberFormat
+  const seenLocales = []
+
+  Intl.NumberFormat = function (...args) {
+    seenLocales.push(args[0])
+    return new OriginalNumberFormat(...args)
+  }
+
+  try {
+    delete require.cache[require.resolve('..')]
+    const freshHumanNumber = require('..')
+
+    freshHumanNumber(1_000)
+    freshHumanNumber(2_000)
+    freshHumanNumber(1_500, 'es-ES')
+    freshHumanNumber(2_500, 'es-ES')
+  } finally {
+    Intl.NumberFormat = OriginalNumberFormat
+    delete require.cache[require.resolve('..')]
+  }
+
+  t.deepEqual(seenLocales, ['en-US', 'es-ES'])
+})
